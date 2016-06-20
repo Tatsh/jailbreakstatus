@@ -5,7 +5,6 @@ setup(
     version='0.0.1',
     author='Andrew Udvare',
     author_email='audvare+jailbreakstatus@gmail.com',
-    #packages=['jailbreakstatus'],
     url='https://github.com/Tatsh/jailbreakstatus',
     license='LICENSE.txt',
     description='Simple check using Jailbreak subreddit for a jailbreak for iOS 9.2+.',
