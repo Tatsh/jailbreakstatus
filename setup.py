@@ -2,12 +2,12 @@ from distutils.core import setup
 
 setup(
     name='jailbreakstatus',
-    version='0.0.1',
+    version='0.0.2',
     author='Andrew Udvare',
     author_email='audvare+jailbreakstatus@gmail.com',
     url='https://github.com/Tatsh/jailbreakstatus',
     license='LICENSE.txt',
-    description='Simple check using Jailbreak subreddit for a jailbreak for iOS 9.2+.',
+    description='Simple check for the latest jailbreak.',
     long_description=open('README.md').read(),
     classifiers=[
         'Environment :: Console',
