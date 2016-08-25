@@ -1,62 +1,36 @@
 #!/usr/bin/env python
 from __future__ import print_function
-from os import uname
-from os.path import expanduser
-import logging
+import re
 import sys
 
-from praw import Reddit
+from bs4 import BeautifulSoup as Soup
+import requests
 
-
-VERSION = '0.0.1'
-LOG_NAME = 'jbstatus'
-
-"""As of 2016-06-19"""
-BAD_LINE = 'iOS 9.2, 9.2.1, 9.3, 9.3.1 and 9.3.2 do not have a jailbreak.'
-
-
-log = logging.getLogger(LOG_NAME)
+VERSION = '0.0.2'
+USER_AGENT = ('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) '
+              'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.70 '
+              'Safari/537.36')
 
 
 def jailbreakstatus():
-    un = uname()
-    ua = '{} {}:jailbreakstatus:v{} (by /u/Tatsh2DX)'.format(
-        un.sysname.lower(), un.machine.lower(), VERSION)
-    log.debug('User agent: {}'.format(ua))
-    r = Reddit(user_agent=ua)
-    desc = r.get_subreddit('jailbreak').description
+    r = requests.get('https://canijailbreak.com/')
+    r.raise_for_status()
+    soup = Soup(r.content, 'html5lib')
+    danger = soup.select('.most-recent .text-danger')
 
-    if BAD_LINE in desc:
-        log.info(BAD_LINE)
-        return BAD_LINE
+    if len(danger):
+        contents = [x for x in danger[0].contents if isinstance(x, basestring)]
+        contents = re.sub(r'\s+', ' ', ' '.join(contents).strip())
+        return contents
 
-    should_log = False
-    data = ''
-
-    for line in desc.splitlines():
-        if line.startswith('# '):
-            if 'Latest jailbreaks' in line:
-                should_log = True
-            else:
-                break
-
-        if should_log:
-            data += line + '\n'
-
-    data = data.strip()
-    log.info(data)
-
-    return data
-
+    success = soup.select('.most-recent .text-success')
+    if len(success):
+        return 'Jailbreak: {}'.format(success.select('a')[0]['href'])
 
 if __name__ == '__main__':
-    logger = logging.getLogger(LOG_NAME)
-    formatter = logging.Formatter('%(message)s')
-    channel = logging.StreamHandler(sys.stdout)
+    status = jailbreakstatus()
 
-    logger.setLevel(logging.DEBUG)
-    channel.setLevel(logging.INFO)
-    channel.setFormatter(formatter)
-    logger.addHandler(channel)
+    if not status():
+        sys.exit(1)
 
-    jailbreakstatus()
+    print(status)
