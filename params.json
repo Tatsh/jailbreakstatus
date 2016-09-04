@@ -1,6 +1,6 @@
 {
   "name": "Jailbreak Status",
   "tagline": "Simple check for jailbreak for latest version of iOS.",
-  "body": "# Jailbreak status checker\r\n\r\nThis is a very simple checker that uses the [iOS Jailbreak](https://www.reddit.com/r/jailbreak/) subreddit to see if the *Latest jailbreaks* sidebar content has changed to show that there is a jailbreak for iOS 9.2 or greater.\r\n",
+  "body": "# Jailbreak status checker\r\n\r\nA very simple command-line based tool that uses [Can I Jailbreak?](https://canijailbreak.com/) to see if a jailbreak is available for iOS 9.3.4 or above.\r\n",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
