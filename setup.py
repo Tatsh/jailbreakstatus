@@ -14,8 +14,6 @@ setup(
         'Topic :: Utilities',
     ],
     install_requires=[
-        'beautifulsoup4==4.5.1',
-        'html5lib==0.999999999',
         'requests==2.11.1',
     ],
     py_modules=['jailbreakstatus'],
