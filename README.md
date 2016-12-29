@@ -1,3 +1,7 @@
 # Jailbreak status checker
 
-This is a very simple checker that uses the [iOS Jailbreak](https://www.reddit.com/r/jailbreak/) subreddit to see if the *Latest jailbreaks* sidebar content has changed to show that there is a jailbreak for iOS 9.2 or greater.
+This is a very simple checker that uses the [*Can I Jailbreak?* API](https://canijailbreak.com/) to see if the latest version of iOS has a jailbreak. Run `jailbreakstatus`. Exit code `0` means yes and `1` means no.
+
+```sh
+jailbreakstatus && sendmail me@me.com <<< 'Latest iOS is jailbreakable'
+```
