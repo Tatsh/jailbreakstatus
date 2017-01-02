@@ -1,6 +1,0 @@
-{
-  "name": "Jailbreak Status",
-  "tagline": "Simple check for jailbreak for latest version of iOS.",
-  "body": "# Jailbreak status checker\r\n\r\nA very simple command-line based tool that uses [Can I Jailbreak?](https://canijailbreak.com/) to see if a jailbreak is available for iOS 9.3.4 or above.\r\n",
-  "note": "Don't delete this file! It's used internally to help with page regeneration."
-}
