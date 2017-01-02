@@ -1,3 +1,7 @@
 # Jailbreak status checker
 
-A very simple command-line based tool that uses [Can I Jailbreak?](https://canijailbreak.com/) to see if a jailbreak is available for iOS 9.3.4 or above.
+This is a very simple checker that uses the [*Can I Jailbreak?* API](https://canijailbreak.com/) to see if the latest version of iOS has a jailbreak. Run `jailbreakstatus`. Exit code `0` means yes and `1` means no.
+
+```sh
+jailbreakstatus && sendmail me@me.com <<< 'Latest iOS is jailbreakable'
+```
