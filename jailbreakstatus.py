@@ -6,7 +6,7 @@ from sys import exit
 import requests
 
 
-VERSION = '0.0.3'
+VERSION = '0.0.4'
 
 
 def jailbreakstatus():

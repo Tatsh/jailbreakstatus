@@ -14,7 +14,7 @@ setup(
         'Topic :: Utilities',
     ],
     install_requires=[
-        'requests==2.11.1',
+        'requests>=2.20.0',
     ],
     py_modules=['jailbreakstatus'],
     entry_points={
