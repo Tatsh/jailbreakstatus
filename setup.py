@@ -1,8 +1,8 @@
-from distutils.core import setup
+from setuptools import setup
 
 setup(
     name='jailbreakstatus',
-    version='0.0.2',
+    version='0.0.4',
     author='Andrew Udvare',
     author_email='audvare+jailbreakstatus@gmail.com',
     url='https://github.com/Tatsh/jailbreakstatus',
